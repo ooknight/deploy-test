@@ -8,10 +8,10 @@ jobs:
 
     steps:
 
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: package
+      - name: Set up java
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
@@ -22,7 +22,7 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.OSSRH_PGP_PRIVATE_KEY }}
 
-      - name: deploy
+      - name: Deploy
         run: mvn -DskipTests=true deploy -P release
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
