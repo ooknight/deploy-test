@@ -21,8 +21,8 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
           server-id: ossrh
-          server-username: ooknight
-          server-password: ${{ secrets.OSSRH_PASSWORD }}
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.OSSRH_PGP_PRIVATE_KEY }}
 
