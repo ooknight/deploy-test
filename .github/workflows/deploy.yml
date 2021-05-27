@@ -1,8 +1,10 @@
 name: deploy
 
-on:
-  release:
-    types: [ created ]
+#on:
+#  release:
+#    types: [ created ]
+
+on: [ push ]
 
 jobs:
   build:
@@ -29,4 +31,4 @@ jobs:
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_PGP_PASSPHRASE }}
+#          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_PGP_PASSPHRASE }}
