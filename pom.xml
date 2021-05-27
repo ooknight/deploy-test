@@ -29,28 +29,28 @@
         <url>https://github.com/ooknight/deploy-test</url>
     </scm>
 
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+    <!--<profiles>-->
+    <!--    <profile>-->
+    <!--        <id>release</id>-->
+    <!--        <build>-->
+    <!--            <plugins>-->
+    <!--                <plugin>-->
+    <!--                    <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                    <artifactId>maven-gpg-plugin</artifactId>-->
+    <!--                    <version>3.0.1</version>-->
+    <!--                    <executions>-->
+    <!--                        <execution>-->
+    <!--                            <phase>verify</phase>-->
+    <!--                            <goals>-->
+    <!--                                <goal>sign</goal>-->
+    <!--                            </goals>-->
+    <!--                        </execution>-->
+    <!--                    </executions>-->
+    <!--                </plugin>-->
+    <!--            </plugins>-->
+    <!--        </build>-->
+    <!--    </profile>-->
+    <!--</profiles>-->
 
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
@@ -70,6 +70,19 @@
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
