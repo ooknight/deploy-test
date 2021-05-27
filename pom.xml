@@ -4,7 +4,7 @@
 
     <groupId>io.github.ooknight</groupId>
     <artifactId>deploy-test</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>deploy test</name>
     <description>deploy test</description>
