@@ -20,7 +20,9 @@ jobs:
           server-username: ${{ secrets.OSSRH_USERNAME }}
           server-password: ${{ secrets.OSSRH_PASSWORD }}
           gpg-private-key: ${{ secrets.OSSRH_PGP_PRIVATE_KEY }}
-          gpg-passphrase: ${{ secrets.OSSRH_PGP_PASSPHRASE }}
+          #          gpg-passphrase: ${{ secrets.OSSRH_PGP_PASSPHRASE }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
 
       - name: deploy
         run: mvn clean deploy -X -P release
