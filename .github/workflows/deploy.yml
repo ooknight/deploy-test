@@ -1,0 +1,30 @@
+name: deploy
+
+on: [ push ]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+
+            - name: checkout
+              uses: actions/checkout@v2
+
+            - name: package
+              uses: actions/setup-java@v2
+              with:
+                  distribution: 'adopt'
+                  java-version: '8'
+                  server-id: ossrh
+                  server-username: ${{ secrets.OSSRH_USERNAME }}
+                  server-password: ${{ secrets.OSSRH_PASSWORD }}
+                  gpg-private-key: ${{ secrets.OSSRH_PGP_PRIVATE_KEY }}
+                  gpg-passphrase: ${{ secrets.OSSRH_PGP_PASSPHRASE }}
+
+            - name: deploy
+              run: mvn deploy
+              env:
+                  MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+                  MAVEN_CENTRAL_TOKEN: ${{ secrets.OSSRH_PASSWORD }}
+                  MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_PGP_PASSPHRASE }}
